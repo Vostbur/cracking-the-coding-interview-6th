@@ -18,6 +18,12 @@ func GetLinkedList() *LinkedList {
 	return &LinkedList{nil, nil, 0}
 }
 
+func GetLinkedListFromSlice(args []int) *LinkedList {
+	ll := GetLinkedList()
+	ll.AddMultiple(args)
+	return ll
+}
+
 func (ll *LinkedList) Add(x int) {
 	newNode := &node{value: x}
 	ll.AddNode(newNode)

@@ -2,7 +2,6 @@
 # Все цифры хранятся в обратном порядке, при этом
 # младший разряд (единицы) хранится в начале списка. Напишите функцию,
 # которая суммирует два числа и возвращает результат в виде связного списка.
-# Вопросы собеседования 87
 # Пример:
 # Ввод: (7->1->6) + (5->9->2), то есть 617 + 295.
 # Вывод: 2->1->9, то есть 912.
@@ -14,6 +13,7 @@ import unittest
 from LinkedList import LinkedList
 
 
+# Сумма элементов записанных в обратном порядке
 def accumulator_unusual(ll1, ll2):
     result = LinkedList()
     a, b = ll1.start_node, ll2.start_node
@@ -33,6 +33,7 @@ def accumulator_unusual(ll1, ll2):
     return result
 
 
+# Сумма элементов записанных в прямом порядке
 def accumulator_usual(ll1, ll2):
     len_ll1 = len(ll1.reverse())
     len_ll2 = len(ll2.reverse())
@@ -44,6 +45,7 @@ def accumulator_usual(ll1, ll2):
     return accumulator_unusual(ll1, ll2).reverse()
 
 
+# Сумма элементов записанных в прямом порядке (вариант 2)
 def accumulator_usual_2(ll1, ll2):
     diff = len(ll1) - len(ll2)
     if diff > 0:
