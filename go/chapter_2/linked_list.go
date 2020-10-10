@@ -1,10 +1,6 @@
-// LinkedList.go
-package main
+package chapter_2
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
 type node struct {
 	value int
@@ -16,6 +12,10 @@ type LinkedList struct {
 	head  *node
 	tail  *node
 	count int
+}
+
+func GetLinkedList() *LinkedList {
+	return &LinkedList{nil, nil, 0}
 }
 
 func (ll *LinkedList) Add(x int) {
@@ -65,7 +65,7 @@ func (ll *LinkedList) AddToHeadMultiple(args []int) {
 func (ll LinkedList) GetSlice() []int {
 	s := make([]int, 0, ll.count)
 	n := ll.head
-	for i := 0; i < ll.count; i++ {
+	for n != nil {
 		s = append(s, n.value)
 		n = n.next
 	}
@@ -75,7 +75,7 @@ func (ll LinkedList) GetSlice() []int {
 func (ll LinkedList) GetReverseSlice() []int {
 	s := make([]int, 0, ll.count)
 	n := ll.tail
-	for i := 0; i < ll.count; i++ {
+	for n != nil {
 		s = append(s, n.value)
 		n = n.prev
 	}
@@ -90,7 +90,7 @@ func (ll LinkedList) GetNode(x int) (*node, error) {
 		}
 		n = n.next
 	}
-	return nil, errors.New(fmt.Sprintf("linked list has no element '%d'\n", x))
+	return nil, fmt.Errorf("linked list has no element '%d'\n", x)
 }
 
 func (ll LinkedList) GetNodeByIndex(x int) (*node, error) {
@@ -101,7 +101,7 @@ func (ll LinkedList) GetNodeByIndex(x int) (*node, error) {
 		}
 		n = n.next
 	}
-	return nil, errors.New(fmt.Sprintf("linked list has no index '%d'\n", x))
+	return nil, fmt.Errorf("linked list has no index '%d'\n", x)
 }
 
 func (ll *LinkedList) Del(x int) error {

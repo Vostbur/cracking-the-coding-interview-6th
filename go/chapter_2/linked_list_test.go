@@ -1,5 +1,4 @@
-// linked_list_test.py
-package main
+package chapter_2
 
 import (
 	"reflect"
