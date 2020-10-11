@@ -7,3 +7,26 @@
 // Вывод: C
 package chapter_2
 
+func (ll *LinkedList) LoopDetect() *node {
+	fast, slow := ll.head, ll.head
+
+	for fast != nil && fast.next != nil {
+		slow = slow.next
+		fast = fast.next.next
+		if fast == slow {
+			break
+		}
+	}
+
+	if fast == nil || fast.next == nil {
+		return nil
+	}
+
+	slow = ll.head
+	for fast != slow {
+		fast = fast.next
+		slow = slow.next
+	}
+
+	return fast
+}
