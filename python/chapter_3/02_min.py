@@ -20,7 +20,7 @@ class Stack:
 
 	def pop(self):
 		if self.is_empty():
-			return Exception('Cannot return min. Stack is empty.')
+			return Exception('Cannot return pop. Stack is empty.')
 		ret = self.stack[self.length-1]
 		self.stack = self.stack[:self.length-1]
 		self.min_values = self.min_values[:self.length-1]

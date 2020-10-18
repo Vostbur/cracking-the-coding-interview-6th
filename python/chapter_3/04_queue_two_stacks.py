@@ -1,37 +1,6 @@
 # Напишите класс MyQueue, который реализует очередь с использованием двух стеков.
 import unittest
-
-
-class Stack:
-    def __init__(self):
-        self.stack = []
-        self.length = 0
-
-    def __str__(self):
-        return f'stack:{self.stack} length:{self.length}'
-
-    def __len__(self):
-        return self.length
-
-    def __iter__(self):
-        while self.length:
-            yield self.pop()
-
-    def push(self, x):
-        self.stack.append(x)
-        self.length += 1
-
-    def pop(self):
-        if self.is_empty():
-            raise Exception('Cannot pop. Stack is empty')
-        l = self.length - 1
-        r = self.stack[l]
-        self.stack = self.stack[:l]
-        self.length -= 1
-        return r
-
-    def is_empty(self):
-        return self.length == 0
+from stack import Stack, StackException
 
 
 class Queue:
@@ -59,16 +28,16 @@ class Test(unittest.TestCase):
         self.stack.push(1)
         self.stack.push(2)
         self.stack.push(3)
-        self.assertEqual(str(self.stack), 'stack:[1, 2, 3] length:3')
+        self.assertEqual(str(self.stack), 'stack:[1, 2, 3] length:3\n')
 
     def test_02_pop(self):
         self.stack.pop()
-        self.assertEqual(str(self.stack), 'stack:[1, 2] length:2')
+        self.assertEqual(str(self.stack), 'stack:[1, 2] length:2\n')
 
     def test_03_pop(self):
         self.stack.pop()
         self.stack.pop()
-        with self.assertRaises(Exception) as e:
+        with self.assertRaises(StackException) as e:
             self.stack.pop()
         exc = e.exception
         self.assertEqual(str(exc), 'Cannot pop. Stack is empty')
@@ -83,4 +52,3 @@ class Test(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
