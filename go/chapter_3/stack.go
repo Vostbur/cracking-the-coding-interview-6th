@@ -11,6 +11,10 @@ type Stack struct {
 	top *stackNode
 }
 
+func GetStack() *Stack {
+	return &Stack{}
+}
+
 func (s *Stack) push(x int) {
 	newNode := &stackNode{value: x}
 	if s.top != nil {
