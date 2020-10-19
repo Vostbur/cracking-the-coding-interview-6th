@@ -11,12 +11,12 @@ func TestMin(t *testing.T) {
 	if m, _ := s.Min(); m != 1 {
 		t.Errorf("Expected: 1. Actual: %d", m)
 	}
-	s.Pop()
+	_, _ = s.Pop()
 	if m, _ := s.Min(); m != 2 {
 		t.Errorf("Expected: 2. Actual: %d", m)
 	}
-	s.Pop()
-	s.Pop()
+	_, _ = s.Pop()
+	_, _ = s.Pop()
 	if m, _ := s.Min(); m != 3 {
 		t.Errorf("Expected: 3. Actual: %d", m)
 	}

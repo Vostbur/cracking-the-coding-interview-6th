@@ -13,19 +13,17 @@ func TestThreeStacks(t *testing.T) {
 
 	s := GetMultiStack(3, 5)
 	for _, i := range stack1 {
-		s.Push(1, i)
+		_ = s.Push(1, i)
 	}
 	for _, i := range stack2 {
-		s.Push(2, i)
+		_ = s.Push(2, i)
 	}
 	for _, i := range stack3 {
-		s.Push(3, i)
+		_ = s.Push(3, i)
 	}
 
 	actual := []int{}
-	for _, i := range s.stack {
-		actual = append(actual, i)
-	}
+	actual = append(actual, s.stack...)
 	if !reflect.DeepEqual(actual, expected) {
 		t.Errorf("Expected: %v. Actual: %v", expected, actual)
 	}
@@ -45,9 +43,7 @@ func TestThreeStacks(t *testing.T) {
 
 	expected = []int{1, 2, 3, 4, 0, 6, 7, 0, 0, 0, 9, 0, 0, 0, 0}
 	actual = []int{}
-	for _, i := range s.stack {
-		actual = append(actual, i)
-	}
+	actual = append(actual, s.stack...)
 	if !reflect.DeepEqual(actual, expected) {
 		t.Errorf("Expected: %v. Actual: %v", expected, actual)
 	}
