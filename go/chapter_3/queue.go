@@ -11,6 +11,10 @@ type Queue struct {
 	head, tail *queueNode
 }
 
+func GetQueue() *Queue {
+	return &Queue{}
+}
+
 func (q *Queue) Add(x int) {
 	newNode := &queueNode{value: x}
 	if q.tail != nil {
