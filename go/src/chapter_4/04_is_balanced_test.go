@@ -19,7 +19,7 @@ func TestIsBalancedFalse(t *testing.T) {
 	
 	expected := false
 	if actual := isBalanced(tree); actual {
-		t.Errorf("Expected: %v. Actaul: %v", expected, actual)
+		t.Errorf("Expected: %v. Actual: %v", expected, actual)
 	}
 }
 
