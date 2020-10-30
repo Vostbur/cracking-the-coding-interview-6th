@@ -5,9 +5,10 @@ import (
 )
 
 type BinaryTree struct {
-	value int
-	left  *BinaryTree
-	right *BinaryTree
+	value  int
+	left   *BinaryTree
+	right  *BinaryTree
+	parent *BinaryTree
 }
 
 func GetBinaryTree(value int) *BinaryTree {
@@ -15,17 +16,17 @@ func GetBinaryTree(value int) *BinaryTree {
 }
 
 func (t *BinaryTree) Insert(value int) *BinaryTree {
-	if t.value >= value {
+	if value <= t.value {
 		if t.left == nil {
 			t.left = &BinaryTree{value: value}
+			t.left.parent = t
 			return t
 		}
 		t.left.Insert(value)
-	}
-
-	if t.value < value {
+	} else {
 		if t.right == nil {
 			t.right = &BinaryTree{value: value}
+			t.right.parent = t
 			return t
 		}
 		t.right.Insert(value)
@@ -33,6 +34,7 @@ func (t *BinaryTree) Insert(value int) *BinaryTree {
 	return t
 }
 
+// TODO: add remove self.parent link
 func (t *BinaryTree) Remove(value int) *BinaryTree {
 	if t == nil {
 		return nil
