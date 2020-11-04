@@ -135,6 +135,9 @@ class LinkedList:
     def delete_at_end(self):
         if self.start_node is None:
             raise LinkedListException('the list has no element to delete')
+        if not self.start_node.ref:
+            self.start_node = None
+            return
         n = self.start_node
         while n.ref.ref:
             n = n.ref
