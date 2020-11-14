@@ -64,19 +64,19 @@ func weaveLists(first, second *LinkedList, results *[]*LinkedList, prefix *Linke
 	}
 
 	headFirst, _ := first.GetNodeByIndex(0)
-	first.DelByIndex(0)
+	_ = first.DelByIndex(0)
 	valHeadFirst := headFirst.value
 	prefix.Add(valHeadFirst)
 	weaveLists(first, second, results, prefix)
-	prefix.DelByIndex(prefix.Len() - 1)
+	_ = prefix.DelByIndex(prefix.Len() - 1)
 	first.AddToHead(valHeadFirst)
 
 	headSecond, _ := second.GetNodeByIndex(0)
-	second.DelByIndex(0)
+	_ = second.DelByIndex(0)
 	valHeadSecond := headSecond.value
 	prefix.Add(valHeadSecond)
 	weaveLists(first, second, results, prefix)
-	prefix.DelByIndex(prefix.Len() - 1)
+	_ = prefix.DelByIndex(prefix.Len() - 1)
 	second.AddToHead(valHeadSecond)
 }
 
