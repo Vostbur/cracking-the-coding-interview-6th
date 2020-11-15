@@ -12,7 +12,9 @@ def count_path(root: BinaryTree, target_sum: int) -> int:
     return count_path_with_sum(root, target_sum, 0, dict())
 
 
-def count_path_with_sum(node: BinaryTree, target_sum: int, running_sum: int, path_count: dict) -> int:
+def count_path_with_sum(
+    node: BinaryTree, target_sum: int, running_sum: int, path_count: dict
+) -> int:
     if not node:
         return 0
 
@@ -24,8 +26,10 @@ def count_path_with_sum(node: BinaryTree, target_sum: int, running_sum: int, pat
         total_paths += 1
 
     inc_dict(path_count, running_sum, 1)
-    total_paths += count_path_with_sum(node.left, target_sum, running_sum, path_count)
-    total_paths += count_path_with_sum(node.right, target_sum, running_sum, path_count)
+    total_paths += count_path_with_sum(
+        node.left, target_sum, running_sum, path_count)
+    total_paths += count_path_with_sum(
+        node.right, target_sum, running_sum, path_count)
     inc_dict(path_count, running_sum, -1)
 
     return total_paths
@@ -56,5 +60,5 @@ class Test(unittest.TestCase):
         self.assertEqual(3, count_path(tree, 10))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

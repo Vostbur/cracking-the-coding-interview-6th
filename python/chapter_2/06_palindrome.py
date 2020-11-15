@@ -46,5 +46,5 @@ class Test(unittest.TestCase):
             self.assertEqual(expect, is_palindrome_stack(data))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

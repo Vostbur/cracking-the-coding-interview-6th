@@ -39,9 +39,11 @@ class Test(unittest.TestCase):
     def test_common_ancestor(self):
         for i in self.init:
             self.tree.insert(i)
-        self.assertEqual(self.tree, common_ancestor(self.tree.left.left,
-                                                    self.tree.right.right))
+        self.assertEqual(
+            self.tree, common_ancestor(
+                self.tree.left.left, self.tree.right.right)
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

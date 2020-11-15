@@ -46,5 +46,5 @@ class Test(unittest.TestCase):
         self.assertFalse(contains_tree(self.tree1, self.tree2))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

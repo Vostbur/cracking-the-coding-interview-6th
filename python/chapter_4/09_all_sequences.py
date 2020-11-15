@@ -1,7 +1,7 @@
-# Бинарное дерево поиска было создано обходом массива слева направо и вставкой каждого элемента.
-# Для заданного бинарного дерева поиска с разными элементами выведите все возможные массивы,
-# которые могли привести к созданию этого дерева.
-# Пример:
+# Бинарное дерево поиска было создано обходом массива слева направо и вставкой
+# каждого элемента. Для заданного бинарного дерева поиска с разными элементами
+# выведите все возможные массивы, которые могли привести к созданию этого
+# дерева. Пример:
 # Ввод: 2
 #      1 3
 # Вывод: {2, 1, 3}, {2, 3, 1}
@@ -25,11 +25,11 @@ def all_sequences(node: BinaryTree) -> list:
     return weaved
 
 
-def in_order_traversal(n: BinaryTree, l: LinkedList) -> None:
+def in_order_traversal(n: BinaryTree, ll: LinkedList) -> None:
     if n:
-        in_order_traversal(n.left, l)
-        l.insert_at_end(n.value)
-        in_order_traversal(n.right, l)
+        in_order_traversal(n.left, ll)
+        ll.insert_at_end(n.value)
+        in_order_traversal(n.right, ll)
 
 
 # Алгоритм работы для переплетения {1, 2, 3} с {4, 5, 6}
@@ -91,4 +91,3 @@ if __name__ == '__main__':
     print(tree)
     for i in res:
         print(i)
-

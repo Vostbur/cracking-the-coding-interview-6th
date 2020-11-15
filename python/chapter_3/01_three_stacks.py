@@ -1,4 +1,5 @@
-# Опишите, как бы вы использовали один одномерный массив для реализации трех стеков
+# Опишите, как бы вы использовали один одномерный массив для реализации
+# трех стеков
 class MultiStack:
     def __init__(self, stack_size):
         self.number_of_stacks = 3
@@ -7,20 +8,22 @@ class MultiStack:
         self.stack_size = stack_size
 
     def __str__(self):
-        return f"number_of_stacks={self.number_of_stacks}\n" \
-               f"stack={self.stack}\n" \
-               f"sizes={self.sizes}\n" \
-               f"stack_size={self.stack_size}\n"
+        return (
+            f"number_of_stacks={self.number_of_stacks}\n"
+            f"stack={self.stack}\n"
+            f"sizes={self.sizes}\n"
+            f"stack_size={self.stack_size}\n"
+        )
 
     def push(self, stack_num, value):
         if self.is_full(stack_num):
-            raise Exception('Stack is full')
+            raise Exception("Stack is full")
         self.sizes[stack_num] += 1
         self.stack[self.index(stack_num)] = value
 
     def pop(self, stack_num):
         if self.is_empty(stack_num):
-            raise Exception('Stack is empty')
+            raise Exception("Stack is empty")
         ind = self.index(stack_num)
         ret, self.stack[ind] = self.stack[ind], 0
         self.sizes[stack_num] -= 1
@@ -28,7 +31,7 @@ class MultiStack:
 
     def peek(self, stack_num):
         if self.is_empty(stack_num):
-            raise Exception('Stack is empty')
+            raise Exception("Stack is empty")
         return self.stack[self.index(stack_num)]
 
     def is_empty(self, stack_num):
@@ -41,7 +44,7 @@ class MultiStack:
         return stack_num * self.stack_size + self.sizes[stack_num] - 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = MultiStack(2)
     s.push(0, 1)
     s.push(0, 2)

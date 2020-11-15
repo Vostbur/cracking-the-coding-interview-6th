@@ -15,15 +15,17 @@ def is_shift(s, shift):
 
 
 class Test(unittest.TestCase):
-    data = [('waterbottle', 'erbottlewat', True),
-            ('waterbottle', 'elttobretaw', False),
-            ('foo', 'bar', False),
-            ('foo', 'foofoo', False)]
+    data = [
+        ("waterbottle", "erbottlewat", True),
+        ("waterbottle", "elttobretaw", False),
+        ("foo", "bar", False),
+        ("foo", "foofoo", False),
+    ]
 
     def test_is_shift(self):
         for [s, shift, result] in self.data:
             self.assertEqual(is_shift(s, shift), result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

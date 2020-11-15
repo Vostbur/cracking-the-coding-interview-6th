@@ -1,7 +1,8 @@
-# Два числа хранятся в виде связных списков, в которых каждый узел представляет один разряд.
-# Все цифры хранятся в обратном порядке, при этом
-# младший разряд (единицы) хранится в начале списка. Напишите функцию,
-# которая суммирует два числа и возвращает результат в виде связного списка.
+# Два числа хранятся в виде связных списков, в которых каждый узел
+# представляет один разряд. Все цифры хранятся в обратном порядке,
+# при этом младший разряд (единицы) хранится в начале списка.
+# Напишите функцию, которая суммирует два числа и возвращает результат
+# в виде связного списка.
 # Пример:
 # Ввод: (7->1->6) + (5->9->2), то есть 617 + 295.
 # Вывод: 2->1->9, то есть 912.
@@ -75,7 +76,7 @@ class Test(unittest.TestCase):
         ll2 = LinkedList()
         ll2.insert_multiple(5, 9, 2)
         actual = accumulator_unusual(ll1, ll2)
-        self.assertEqual('2,1,9', str(actual))
+        self.assertEqual("2,1,9", str(actual))
 
     def test_accumulator_usual(self):
         ll1 = LinkedList()
@@ -83,7 +84,7 @@ class Test(unittest.TestCase):
         ll2 = LinkedList()
         ll2.insert_multiple(2, 9, 5)
         actual = accumulator_usual(ll1, ll2)
-        self.assertEqual('9,1,2', str(actual))
+        self.assertEqual("9,1,2", str(actual))
 
     def test_accumulator_usual_2(self):
         ll1 = LinkedList()
@@ -91,8 +92,8 @@ class Test(unittest.TestCase):
         ll2 = LinkedList()
         ll2.insert_multiple(2, 9, 5)
         actual = accumulator_usual_2(ll1, ll2)
-        self.assertEqual('9,1,2', str(actual))
+        self.assertEqual("9,1,2", str(actual))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

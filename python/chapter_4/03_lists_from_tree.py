@@ -23,7 +23,8 @@ def createLevelLinkedListDFS(tree, lists, level):
         llist.insert_at_end(tree.value)
         lists.append(llist)
     else:
-        # Список этого уровня уже существует, добавляем в массив узлов новый узел уровня
+        # Список этого уровня уже существует, добавляем в массив узлов новый
+        # узел уровня
         lists[level].insert_at_end(tree.value)
     createLevelLinkedListDFS(tree.left, lists, level+1)
     createLevelLinkedListDFS(tree.right, lists, level+1)

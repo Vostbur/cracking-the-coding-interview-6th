@@ -10,7 +10,7 @@ class BinaryTree:
         return self.size
 
     def __str__(self):
-        return self.print(self, 0, '', '')
+        return self.print(self, 0, "", "")
 
     def insert(self, value):
         if value <= self.value:
@@ -45,7 +45,13 @@ class BinaryTree:
 
     def print(self, n, level, ch, output):
         if n:
-            output += self.print(n.left, level + 1, '┌', '') + \
-                      '  ' * level * 4 + ch + '----->' + str(n.value) + '\n' + \
-                      self.print(n.right, level + 1, '└', '')
+            output += (
+                self.print(n.left, level + 1, "┌", "")
+                + "  " * level * 4
+                + ch
+                + "----->"
+                + str(n.value)
+                + "\n"
+                + self.print(n.right, level + 1, "└", "")
+            )
         return output

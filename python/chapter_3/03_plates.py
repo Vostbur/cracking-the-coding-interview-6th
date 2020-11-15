@@ -35,7 +35,7 @@ class Stack:
             yield v
 
     def __str__(self):
-        return ','.join([str(i) for i in self])
+        return ",".join([str(i) for i in self])
 
     def push(self, x):
         new_node = Node(x)
@@ -129,5 +129,5 @@ class Test(unittest.TestCase):
         self.assertEqual(list(range(4, 15)), actual)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

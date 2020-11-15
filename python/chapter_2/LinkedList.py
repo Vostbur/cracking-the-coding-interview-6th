@@ -23,13 +23,13 @@ class LinkedList:
 
     def __str__(self):
         if self.start_node is None:
-            return ''
+            return ""
         elements = []
         n = self.start_node
         while n:
             elements.append(str(n.item))
             n = n.ref
-        return ','.join(elements)
+        return ",".join(elements)
 
     def __len__(self):
         return self.get_count()
@@ -64,14 +64,14 @@ class LinkedList:
                 break
             n = n.ref
         if n is None:
-            raise LinkedListException('item not in the list')
+            raise LinkedListException("item not in the list")
         new_node = Node(data)
         new_node.ref = n.ref
         n.ref = new_node
 
     def insert_before_item(self, x, data):
         if self.start_node is None:
-            raise LinkedListException('list has no element')
+            raise LinkedListException("list has no element")
         if x == self.start_node.item:
             new_node = Node(data)
             new_node.ref = self.start_node
@@ -83,7 +83,7 @@ class LinkedList:
                 break
             n = n.ref
         if n.ref is None:
-            raise LinkedListException('item not in the list')
+            raise LinkedListException("item not in the list")
         new_node = Node(data)
         new_node.ref = n.ref
         n.ref = new_node
@@ -98,7 +98,7 @@ class LinkedList:
             n = n.ref
             i += 1
         if n is None:
-            raise LinkedListException('index out of bound')
+            raise LinkedListException("index out of bound")
         new_node = Node(data)
         new_node.ref = n.ref
         n.ref = new_node
@@ -119,7 +119,7 @@ class LinkedList:
 
     def search_item(self, x):
         if self.start_node is None:
-            raise LinkedListException('list has no elements')
+            raise LinkedListException("list has no elements")
         n = self.start_node
         while n:
             if n.item == x:
@@ -129,12 +129,12 @@ class LinkedList:
 
     def delete_at_start(self):
         if self.start_node is None:
-            raise LinkedListException('the list has no element to delete')
+            raise LinkedListException("the list has no element to delete")
         self.start_node = self.start_node.ref
 
     def delete_at_end(self):
         if self.start_node is None:
-            raise LinkedListException('the list has no element to delete')
+            raise LinkedListException("the list has no element to delete")
         n = self.start_node
         while n.ref.ref:
             n = n.ref
@@ -142,7 +142,7 @@ class LinkedList:
 
     def delete_element_by_value(self, x):
         if self.start_node is None:
-            raise LinkedListException('the list has no element to delete')
+            raise LinkedListException("the list has no element to delete")
         if self.start_node.item == x:
             self.start_node = self.start_node.ref
             return
@@ -152,7 +152,7 @@ class LinkedList:
                 break
             n = n.ref
         if n.ref is None:
-            raise LinkedListException('item not found in the list')
+            raise LinkedListException("item not found in the list")
         n.ref = n.ref.ref
 
     def reverse(self):
@@ -171,5 +171,5 @@ class LinkedList:
             self.insert_at_end(randint(0, 100))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

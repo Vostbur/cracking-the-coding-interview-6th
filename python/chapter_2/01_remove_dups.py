@@ -37,14 +37,14 @@ class Test(unittest.TestCase):
         ll = LinkedList()
         ll.insert_multiple(1, 2, 2, 3, 3, 3)
         remove_dups(ll)
-        self.assertEqual(str(ll), '1,2,3')
+        self.assertEqual(str(ll), "1,2,3")
 
     def test_remove_dups_two_refs(self):
         ll = LinkedList()
         ll.insert_multiple(1, 2, 2, 3, 3, 3)
         remove_dups_two_refs(ll)
-        self.assertEqual(str(ll), '1,2,3')
+        self.assertEqual(str(ll), "1,2,3")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -17,7 +17,7 @@ class TreeNode:
     @property
     def get_random_node(self):
         left_size = 0 if not self.left else self.left.size
-        index = random.randint(0, self.size-1)
+        index = random.randint(0, self.size - 1)
         if index < left_size:
             return self.left.get_random_node
         elif index == left_size:
@@ -60,5 +60,5 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

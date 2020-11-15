@@ -29,5 +29,5 @@ class Test(unittest.TestCase):
         self.assertFalse(bfs(self.graph, 1, 4))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

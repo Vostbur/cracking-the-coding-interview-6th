@@ -24,11 +24,11 @@ def min_tree(array, start, end):
 
 def print_tree(n, level, ch):
     if n:
-        print_tree(n.left, level + 1, '┌')
-        print('  ' * level * 4 + ch + '----->', n.value)
-        print_tree(n.right, level + 1, '└')
+        print_tree(n.left, level + 1, "┌")
+        print("  " * level * 4 + ch + "----->", n.value)
+        print_tree(n.right, level + 1, "└")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 111, 1000]
-    print_tree(mit_tree_from_sorted_list(array), 0, '')
+    print_tree(mit_tree_from_sorted_list(array), 0, "")

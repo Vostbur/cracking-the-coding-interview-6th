@@ -1,7 +1,8 @@
 # Напишите программу сортировки стека, в результате которой наименьший
-# элемент оказывается на вершине стека. Вы можете использовать дополнительный временный стек,
-# но элементы не должны копироваться в другие
-# структуры данных (например, в массив). Стек должен поддерживать следующие операции: push, pop, peek, isEmpty.
+# элемент оказывается на вершине стека. Вы можете использовать дополнительный
+# временный стек, но элементы не должны копироваться в другие
+# структуры данных (например, в массив). Стек должен поддерживать следующие
+# операции: push, pop, peek, isEmpty.
 import unittest
 from stack import Stack, StackException
 
@@ -12,7 +13,8 @@ class SortStack:
         self.temp_stack = Stack()
 
     def __str__(self):
-        return f'Sorted stack: {str(self.sort_stack)}Temp stack: {str(self.temp_stack)}'
+        return f'Sorted stack: {str(self.sort_stack)}\
+            Temp stack: {str(self.temp_stack)}'
 
     def __iter__(self):
         return self.sort_stack.__iter__()

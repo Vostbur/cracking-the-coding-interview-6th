@@ -37,5 +37,5 @@ class Test(unittest.TestCase):
         self.assertEqual(-10, next_node(self.tree.left.right).value)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

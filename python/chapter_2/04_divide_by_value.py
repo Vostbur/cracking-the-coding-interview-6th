@@ -29,8 +29,8 @@ class Test(unittest.TestCase):
         ll = LinkedList()
         ll.insert_multiple(3, 5, 8, 5, 10, 2, 1)
         divide(ll, 3)
-        self.assertEqual('1,2,3,5,8,5,10', str(ll))
+        self.assertEqual("1,2,3,5,8,5,10", str(ll))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

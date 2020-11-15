@@ -1,10 +1,10 @@
-"""Напишие функцию, которая проверяет, является ли заданная строка перестановкой палиндрома.
-(Палиндром - слово или фраза, одинаково читающиеся в прямом и обратном направлении;
-перестановка - строка, содержащая те же символы в другом порядке.)
-Палиндром не ограничивается словами из словаря.
-Пример: Tact Coa
-Вывод: True (перестановки: 'taco cat', 'atco cta' и т.д.)
-"""
+# Напишие функцию, которая проверяет, является ли заданная строка
+# перестановкой палиндрома. (Палиндром - слово или фраза, одинаково
+# читающиеся в прямом и обратном направлении;
+# перестановка - строка, содержащая те же символы в другом порядке.)
+# Палиндром не ограничивается словами из словаря.
+# Пример: Tact Coa
+# Вывод: True (перестановки: 'taco cat', 'atco cta' и т.д.)
 import unittest
 import string
 from collections import Counter
@@ -12,8 +12,8 @@ from collections import Counter
 
 def check_palindrome(s):
     p = [i for i in s.lower() if i in string.ascii_lowercase]
-    l = len(p)
-    if l < 3:
+    length = len(p)
+    if length < 3:
         return False
 
     c = Counter()
@@ -30,19 +30,20 @@ def check_palindrome(s):
             if flag:
                 return False
             flag = True
-    return flag == (l % 2)
+    return flag == (length % 2)
 
 
 class Test(unittest.TestCase):
     data = [
-        ('Tact Coa', True),
-        ('jhsabckuj ahjsbckj', True),
-        ('Able was I ere I saw Elba', True),
-        ('So patient a nurse to nurse a patient so', False),
-        ('Random Words', False),
-        ('Not a Palindrome', False),
-        ('no x in nixon', True),
-        ('azAZ', True)]
+        ("Tact Coa", True),
+        ("jhsabckuj ahjsbckj", True),
+        ("Able was I ere I saw Elba", True),
+        ("So patient a nurse to nurse a patient so", False),
+        ("Random Words", False),
+        ("Not a Palindrome", False),
+        ("no x in nixon", True),
+        ("azAZ", True),
+    ]
 
     def test_check_palindrome(self):
         for [s, result] in self.data:

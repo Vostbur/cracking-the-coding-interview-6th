@@ -1,4 +1,5 @@
-"""Для двух строк напишите метод, определяющий, является ли одна строка перестановкой другой"""
+# Для двух строк напишите метод, определяющий,
+# является ли одна строка перестановкой другой
 import unittest
 
 
@@ -19,11 +20,11 @@ def permutation(s1, s2):
 
 
 class Test(unittest.TestCase):
-    dataset_false = [('asd', 'asd'), ('asd', 'asdf'), ('', '')]
-    dataset_true = [('А вас', 'Авас '), ('asd', 'sda')]
+    dataset_false = [("asd", "asd"), ("asd", "asdf"), ("", "")]
+    dataset_true = [("А вас", "Авас "), ("asd", "sda")]
 
     def test_permutation(self):
-        # false check 
+        # false check
         for i in self.dataset_false:
             result = permutation(*i)
             self.assertFalse(result)

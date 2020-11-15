@@ -1,4 +1,5 @@
-# Напишите класс MyQueue, который реализует очередь с использованием двух стеков.
+# Напишите класс MyQueue, который реализует очередь с использованием
+# двух стеков.
 import unittest
 from stack import Stack, StackException
 
@@ -28,11 +29,11 @@ class Test(unittest.TestCase):
         self.stack.push(1)
         self.stack.push(2)
         self.stack.push(3)
-        self.assertEqual(str(self.stack), 'stack:[1, 2, 3] length:3\n')
+        self.assertEqual(str(self.stack), "stack:[1, 2, 3] length:3\n")
 
     def test_02_pop(self):
         self.stack.pop()
-        self.assertEqual(str(self.stack), 'stack:[1, 2] length:2\n')
+        self.assertEqual(str(self.stack), "stack:[1, 2] length:2\n")
 
     def test_03_pop(self):
         self.stack.pop()
@@ -40,7 +41,7 @@ class Test(unittest.TestCase):
         with self.assertRaises(StackException) as e:
             self.stack.pop()
         exc = e.exception
-        self.assertEqual(str(exc), 'Cannot pop. Stack is empty')
+        self.assertEqual(str(exc), "Cannot pop. Stack is empty")
 
     def test_04_queue(self):
         self.queue.push(1)
@@ -50,5 +51,5 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, [1, 2, 3])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

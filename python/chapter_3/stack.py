@@ -8,7 +8,7 @@ class Stack:
         self.length = 0
 
     def __str__(self):
-        return f'stack:{self.stack} length:{self.length}\n'
+        return f"stack:{self.stack} length:{self.length}\n"
 
     def __len__(self):
         return self.length
@@ -23,16 +23,16 @@ class Stack:
 
     def pop(self):
         if self.is_empty():
-            raise StackException('Cannot pop. Stack is empty')
-        l = self.length - 1
-        r = self.stack[l]
-        self.stack = self.stack[:l]
+            raise StackException("Cannot pop. Stack is empty")
+        length = self.length - 1
+        r = self.stack[length]
+        self.stack = self.stack[:length]
         self.length -= 1
         return r
 
     def peek(self):
         if self.is_empty():
-            raise StackException('Cannot peek. Stack is empty')
+            raise StackException("Cannot peek. Stack is empty")
         return self.stack[self.length - 1]
 
     def is_empty(self):

@@ -1,9 +1,11 @@
-# В приюте для животных есть только собаки и кошки, а работа осуществляется в порядке очереди.
-# Люди должны каждый раз забирать «самое старое» (по времени пребывания в питомнике) животное,
-# но могут выбрать кошку или собаку (животное в любом случае будет «самым старым»).
-# Нельзя выбрать любое понравившееся животное. Создайте структуру данных, которая
-# обеспечивает функционирование этой системы и реализует операции enqueue, dequeueAny,
-# dequeueDog и dequeueCat. Разрешается использование встроенной структуры данных LinkedList.
+# В приюте для животных есть только собаки и кошки, а работа осуществляется
+# в порядке очереди. Люди должны каждый раз забирать «самое старое»
+# (по времени пребывания в питомнике) животное, но могут выбрать кошку
+# или собаку (животное в любом случае будет «самым старым»). Нельзя выбрать
+# любое понравившееся животное. Создайте структуру данных, которая
+# обеспечивает функционирование этой системы и реализует операции
+# enqueue, dequeueAny, dequeueDog и dequeueCat. Разрешается использование
+# встроенной структуры данных LinkedList.
 class LinkedListException(Exception):
     pass
 
@@ -23,13 +25,13 @@ class PetQueue:
 
     def __str__(self):
         if self.first_pet is None:
-            return ''
+            return ""
         pets = []
         pet = self.first_pet
         while pet:
             pets.append(pet.name)
             pet = pet.next
-        return ','.join(pets)
+        return ",".join(pets)
 
     def push(self, name):
         pet = Pet(name)
@@ -43,7 +45,7 @@ class PetQueue:
 
     def pop(self):
         if self.length == 0:
-            raise LinkedListException('Cannot pop. Queue is empty.')
+            raise LinkedListException("Cannot pop. Queue is empty.")
         self.length -= 1
         name = self.last_pet.name
         if self.length == 0:
@@ -61,12 +63,12 @@ class Pets:
         self.cats = PetQueue()
 
     def __str__(self):
-        return f'Dogs: {str(self.dogs)}\nCats: {str(self.cats)}'
+        return f"Dogs: {str(self.dogs)}\nCats: {str(self.cats)}"
 
     def enqueue(self, pet, name):
-        if pet == 'dog':
+        if pet == "dog":
             self.dogs.push(name)
-        if pet == 'cat':
+        if pet == "cat":
             self.cats.push(name)
 
     def dequeueDog(self):
@@ -76,23 +78,26 @@ class Pets:
         return self.cats.pop()
 
     def dequeueAny(self):
-        return self.dogs.pop() if self.dogs.length > self.cats.length else self.cats.pop()
+        if self.dogs.length > self.cats.length:
+            return self.dogs.pop()
+        else:
+            return self.cats.pop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     p = Pets()
-    p.enqueue('dog', 'black')
-    p.enqueue('cat', 'little')
-    p.enqueue('dog', 'gray')
-    p.enqueue('cat', 'big')
-    p.enqueue('dog', 'white')
-    p.enqueue('cat', 'fat')
-    p.enqueue('dog', 'brown')
+    p.enqueue("dog", "black")
+    p.enqueue("cat", "little")
+    p.enqueue("dog", "gray")
+    p.enqueue("cat", "big")
+    p.enqueue("dog", "white")
+    p.enqueue("cat", "fat")
+    p.enqueue("dog", "brown")
     print(p)
     print(p.dequeueDog())
     print(p.dequeueAny())
     print(p.dequeueCat())
     print(p.dequeueAny())
     print(p.dequeueCat())
-    p.enqueue('cat', 'thin')
+    p.enqueue("cat", "thin")
     print(p)
